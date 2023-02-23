@@ -18,11 +18,7 @@ jobs:
 
       - name: Execute Gradle build
         run: ./gradlew build
-      - name: Build and publish Docker image
-        env:
-          IMAGE: ghcr.io/${{ github.repository }}/ktor:${{ github.sha }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Execute Gradle build for DockerFile
         run: |
-          docker build --tag ${IMAGE} .
-          docker login ghcr.io -u ${GITHUB_REPOSITORY} -p ${GITHUB_TOKEN}
-          docker push ${IMAGE}
+          ./gradlew buildFatJar
