@@ -6,8 +6,7 @@ COPY src src
 RUN ./gradlew --no-daemon buildFatJar
 
 FROM openjdk:17-jdk-slim
-WORKDIR /usr
 EXPOSE 8080:8080
 RUN mkdir /app
-COPY --from=BUILD_STAGE /build/libs/*-all.jar /app/ktor-server.jar
+COPY --from=BUILD_STAGE /tmp/build/libs/*-all.jar /app/ktor-server.jar
 ENTRYPOINT ["java","-jar","/app/ktor-server.jar"]
