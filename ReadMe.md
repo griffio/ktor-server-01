@@ -11,7 +11,7 @@ Free Tier usage
 * Build & Deploy settings
 * Set repo branch
 * Set health check to /health
-* Leave Dockerfile and other settings settings to defaults
+* Leave Dockerfile and other settings to defaults
 
 ### Multistage Dockerfile
 
