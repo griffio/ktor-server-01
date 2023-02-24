@@ -9,4 +9,4 @@ FROM openjdk:17-jdk-slim
 EXPOSE 8080:8080
 RUN mkdir /app
 COPY --from=BUILD_STAGE /tmp/build/libs/*-all.jar /app/ktor-server.jar
-ENTRYPOINT ["java","-jar","/app/ktor-server.jar"]
+ENTRYPOINT ["java","-Xlog:gc+init","-jar","/app/ktor-server.jar"]
