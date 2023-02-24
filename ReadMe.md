@@ -14,6 +14,8 @@ Free Tier usage
 
 ### Multistage Dockerfile
 
+[Dockerfile](https://github.com/griffio/ktor-server-01/blob/master/Dockerfile)
+
 * Stage 1 - Run the gradle build to create fatJar with all dependencies
 * Stage 2 - Containerize the executable jar
 
