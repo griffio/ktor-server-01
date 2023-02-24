@@ -27,6 +27,16 @@ see https://feedback.render.com/features/p/deploy-docker-images-from-public-priv
 
 Deploy Application log on start-up
 ```
+ [info][gc,init] Version: 17.0.2+8-86 (release)
+ [info][gc,init] CPUs: 8 total, 1 available
+ [info][gc,init] Memory: 512M
+ [info][gc,init] Large Page Support: Disabled
+ [info][gc,init] NUMA Support: Disabled
+ [info][gc,init] Compressed Oops: Enabled (32-bit)
+ [info][gc,init] Heap Min Capacity: 8M
+ [info][gc,init] Heap Initial Capacity: 8M
+ [info][gc,init] Heap Max Capacity: 128M
+ [info][gc,init] Pre-touch: Disabled
  [main] INFO  ktor.application - Application started in 8.185 seconds.
  [DefaultDispatcher-worker-2] INFO  ktor.application - Responding at http://0.0.0.0:8080
  [main] INFO  ktor.application - Autoreload is disabled because the development mode is off.
