@@ -2,14 +2,22 @@
 
 https://render.com/
 
+Free Tier usage
+
 * Link GitHub account to Render 
 * Allow access to the GitHub repo
 * Create a new Render Web Service for Docker
+* Build & Deploy settings
+* Set repo branch
 * Set health check to /health
-* Leave Dockerfile settings to defaults
+* Leave Dockerfile and other settings settings to defaults
 
 ### Multistage Dockerfile
-This is because Render service checkouts the repo and executes a Docker build - support for Container registry
+
+* Stage 1 - Run the gradle build to create fatJar with all dependencies
+* Stage 2 - Containerize the executable jar
+
+This is because Render service checkouts the repo and executes a Docker build - yet to support deploy from Container registry
 see https://feedback.render.com/features/p/deploy-docker-images-from-public-private-registries
 
 Deploy Application log on start-up
