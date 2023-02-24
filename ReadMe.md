@@ -42,4 +42,4 @@ Deploy Application log on start-up
   * Supports DockerHub and other container registries
 * https://fly.io
   * Free limited to 256MB
-  * Support container registries
+  * Supports container registries
