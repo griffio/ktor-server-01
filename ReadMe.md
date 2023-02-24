@@ -7,6 +7,7 @@ Free Tier usage
 * Link GitHub account to Render 
 * Allow access to the GitHub repo
 * Create a new Render Web Service for Docker
+* Set a service name (will be accessible at https://[servicename].onrender.com/)
 * Build & Deploy settings
 * Set repo branch
 * Set health check to /health
@@ -31,3 +32,5 @@ Deploy Application log on start-up
  [DefaultDispatcher-worker-1] INFO  ktor.application - Responding at http://0.0.0.0:8080
  [eventLoopGroupProxy-4-1] TRACE io.ktor.routing.Routing - Trace for [health]
 ```
+
+
