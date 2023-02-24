@@ -33,4 +33,8 @@ Deploy Application log on start-up
  [eventLoopGroupProxy-4-1] TRACE io.ktor.routing.Routing - Trace for [health]
 ```
 
+### Alternatives without Credit Card
 
+* https://mogenius.com/home
+  * Free signups currently suspended
+  * Supports DockerHub and other container registries
