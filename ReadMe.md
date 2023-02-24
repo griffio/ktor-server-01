@@ -38,3 +38,6 @@ Deploy Application log on start-up
 * https://mogenius.com/home
   * Free signups currently suspended
   * Supports DockerHub and other container registries
+* https://fly.io
+  * Free limited to 256MB
+  * Support container registries
