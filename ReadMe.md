@@ -2,7 +2,9 @@
 
 https://render.com/
 
-Free Tier usage
+### Free Tier usage
+
+Provides just enough RAM and CPU 512MB/0.1 for JVM app
 
 * Link GitHub account to Render 
 * Allow access to the GitHub repo
@@ -17,7 +19,7 @@ Free Tier usage
 
 [Dockerfile](https://github.com/griffio/ktor-server-01/blob/master/Dockerfile)
 
-* Stage 1 - Run the gradle build to create fatJar with all dependencies
+* Stage 1 - Run the gradle build to create a fatJar (or use installDist) with all dependencies
 * Stage 2 - Containerize the executable jar
 
 This is because Render service checkouts the repo and executes a Docker build - yet to support deploy from Container registry
