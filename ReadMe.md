@@ -26,7 +26,11 @@ This is because Render service checkouts the repo and executes a Docker build - 
 see https://feedback.render.com/features/p/deploy-docker-images-from-public-private-registries
 
 Deploy Application log on start-up
+
+The default JVM ergonomics uses Heap at 25% of RAM and 1 available CPU uses SerialGC
+
 ```
+-XX:InitialHeapSize=8388608 -XX:MaxHeapSize=134217728 -XX:MinHeapSize=6815736 -XX:+PrintCommandLineFlags -XX:ReservedCodeCacheSize=251658240 -XX:+SegmentedCodeCache -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:+UseSerialGC
  [info][gc,init] Version: 17.0.2+8-86 (release)
  [info][gc,init] CPUs: 8 total, 1 available
  [info][gc,init] Memory: 512M
