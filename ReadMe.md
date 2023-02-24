@@ -35,7 +35,7 @@ Deploy Application log on start-up
 
 ### Alternatives without Credit Card
 
-* https://mogenius.com/home
+* https://mogenius.com
   * Free signups currently suspended
   * Supports DockerHub and other container registries
 * https://fly.io
