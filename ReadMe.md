@@ -51,7 +51,9 @@ The default JVM ergonomics uses Heap at 25% of RAM and 1 available CPU uses Seri
 
 ### Alternatives without Credit Card
 
-* https://mogenius.com
+* https://www.koyeb.com/docs/faqs/pricing#is-there-a-free-tier
+  * One free web Service in the Frankfurt or Washington, D.C. regions with 512MB of RAM, 0.1 vCPU, and 2GB of SSD.
+* ~~https://mogenius.com~~
   * Free signups currently suspended
   * Supports DockerHub and other container registries
 * https://fly.io
