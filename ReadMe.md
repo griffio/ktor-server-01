@@ -56,6 +56,9 @@ The default JVM ergonomics uses Heap at 25% of RAM and 1 available CPU uses Seri
 * ~~https://mogenius.com~~
   * Free signups currently suspended
   * Supports DockerHub and other container registries
-* https://fly.io
+* ~~https://fly.io~~ https://fly.io/blog/free-postgres/#a-note-about-credit-cards
   * Free limited to 256MB
   * Supports container registries
+* ~~https://railway.app/~~ https://blog.railway.app/p/updates-on-plans
+
+    
