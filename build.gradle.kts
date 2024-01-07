@@ -26,6 +26,11 @@ dependencies {
     implementation("io.ktor:ktor-server-core-jvm:$ktorVersion")
     implementation("io.ktor:ktor-server-netty-jvm:$ktorVersion")
     implementation("ch.qos.logback:logback-classic:$logbackVersion")
+    // add all tegralLibs to classpath to avoid module problem with `Supertypes of the following classes cannot be resolved. Please make sure you have the required dependencies in the classpath:
+    // class guru.zoroark.tegral.openapi.dsl.MediaTypeBuilder, unresolved supertypes: guru.zoroark.tegral.core.Buildable`
+    implementation(tegralLibs.core)
+    implementation(tegralLibs.openapi.ktor)
+    implementation(tegralLibs.openapi.dsl)
     testImplementation("io.ktor:ktor-server-tests-jvm:$ktorVersion")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion")
 }
