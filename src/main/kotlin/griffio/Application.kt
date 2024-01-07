@@ -1,5 +1,6 @@
 package griffio
 
+import guru.zoroark.tegral.openapi.ktor.TegralOpenApiKtor
 import io.ktor.server.application.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
@@ -10,5 +11,11 @@ fun main() {
 }
 
 fun Application.module() {
+    install(TegralOpenApiKtor) {
+        title = "Example API"
+        description = "The example API"
+        version = "1.0.0"
+    }
+
     configureRouting()
 }
