@@ -16,6 +16,7 @@ fun Application.module() {
         description = "The example API"
         version = "1.0.0"
     }
-
+val x: String = "a".lowercase()
+   
     configureRouting()
 }

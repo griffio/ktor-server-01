@@ -22,3 +22,11 @@ jobs:
       - name: Execute Gradle build for DockerFile
         run: |
           ./gradlew buildFatJar
+      - name: Check gradle home directory sizes
+        run: |
+          echo "Directory sizes:"
+          du -h -d 1 ~/.gradle
+      - name: Check gradle directory sizes
+        run: |
+          echo "Directory sizers:"
+          du -h -d 1 .gradle  	
