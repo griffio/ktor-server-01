@@ -25,4 +25,4 @@ jobs:
       - name: Check directory sizes
         run: |
           echo "Directory sizes:"
-          du -h -d 1 / 	
+          du -h -d 1 ~/.gradle 	
