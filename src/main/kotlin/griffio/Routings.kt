@@ -1,36 +1,27 @@
 package griffio
 
-import guru.zoroark.tegral.openapi.dsl.schema
-import guru.zoroark.tegral.openapi.ktor.describe
-import guru.zoroark.tegral.openapi.ktor.openApiEndpoint
+import io.ktor.openapi.OpenApiInfo
 import io.ktor.server.application.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import io.ktor.server.routing.openapi.*
+import io.ktor.server.plugins.openapi.*
 
 fun Application.configureRouting() {
 
     routing {
-
+        openAPI(path = "openapi") {
+            info = OpenApiInfo("Http API", "1.0")
+            source = OpenApiDocSource.Routing {
+                routingRoot.descendants()
+            }
+        }
         get("/") {
             call.respondText("Hello World!")
-        } describe {
-            description = "Returns a plain text greeting"
-            200 response {
-                description = "greeting response"
-                plainText { schema("Hello World!") }
-            }
         }
 
         get("/health") {
             call.respondText("Ok")
-        } describe {
-            description = "Returns a plain text health check"
-            200 response {
-                description = "health response"
-                plainText { schema("Ok") }
-            }
         }
-
-        openApiEndpoint("/openapi")
     }
 }
