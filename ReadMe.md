@@ -22,8 +22,7 @@ Provides just enough RAM and CPU 512MB/0.1 for JVM app
 * Stage 1 - Run the gradle build to create a fatJar (or use installDist) with all dependencies
 * Stage 2 - Containerize the executable jar
 
-This is because Render service checkouts the repo and executes a Docker build - yet to support deploy from Container registry
-see https://feedback.render.com/features/p/deploy-docker-images-from-public-private-registries
+Alternative https://feedback.render.com/features/p/deploy-docker-images-from-public-private-registries
 
 Deploy Application log on start-up
 
