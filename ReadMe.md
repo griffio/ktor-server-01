@@ -26,26 +26,28 @@ Alternative https://feedback.render.com/features/p/deploy-docker-images-from-pub
 
 Deploy Application log on start-up
 
-The default JVM ergonomics uses Heap at 25% of RAM and 1 available CPU uses SerialGC
+The JDK 25 default JVM ergonomics uses Heap at 1/64th of RAM and 1 available CPU uses SerialGC in a limited system.
 
 ```
--XX:InitialHeapSize=8388608 -XX:MaxHeapSize=134217728 -XX:MinHeapSize=6815736 -XX:+PrintCommandLineFlags -XX:ReservedCodeCacheSize=251658240 -XX:+SegmentedCodeCache -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:+UseSerialGC
- [info][gc,init] Version: 17.0.2+8-86 (release)
- [info][gc,init] CPUs: 8 total, 1 available
- [info][gc,init] Memory: 512M
- [info][gc,init] Large Page Support: Disabled
- [info][gc,init] NUMA Support: Disabled
- [info][gc,init] Compressed Oops: Enabled (32-bit)
- [info][gc,init] Heap Min Capacity: 8M
- [info][gc,init] Heap Initial Capacity: 8M
- [info][gc,init] Heap Max Capacity: 128M
- [info][gc,init] Pre-touch: Disabled
- [main] INFO  ktor.application - Application started in 8.185 seconds.
- [DefaultDispatcher-worker-2] INFO  ktor.application - Responding at http://0.0.0.0:8080
- [main] INFO  ktor.application - Autoreload is disabled because the development mode is off.
- [main] INFO  ktor.application - Application started in 7.4 seconds.
- [DefaultDispatcher-worker-1] INFO  ktor.application - Responding at http://0.0.0.0:8080
- [eventLoopGroupProxy-4-1] TRACE io.ktor.routing.Routing - Trace for [health]
+ -XX:-AOTInvokeDynamicLinking -XX:-AOTRecordTraining -XX:-AOTReplayTraining -XX:InitialHeapSize=8388608 -XX:MaxHeapSize=134217728 -XX:MinHeapSize=6815736 -XX:+PrintCommandLineFlags -XX:ReservedCodeCacheSize=251658240 -XX:+SegmentedCodeCache -XX:-THPStackMitigation -XX:+UseCompressedOops -XX:+UseSerialGC 
+[info][gc,init] CardTable entry size: 512
+[info][gc,init] Version: 25.0.2+10-LTS (release)
+[info][gc,init] CPUs: 8 total, 1 available
+[info][gc,init] Memory: 512M
+[info][gc,init] Large Page Support: Disabled
+[info][gc,init] NUMA Support: Disabled
+[info][gc,init] Compressed Oops: Enabled (32-bit)
+[info][gc,init] Heap Min Capacity: 8M
+[info][gc,init] Heap Initial Capacity: 8M
+[info][gc,init] Heap Max Capacity: 128M
+[info][gc,init] Pre-touch: Disabled
+[main] INFO  io.ktor.server.Application - Autoreload is disabled because the development mode is off.
+[main] INFO  i.s.c.v.i.CodegenIgnoreProcessor - No .swagger-codegen-ignore file found.
+[main] INFO  i.s.codegen.v3.AbstractGenerator - writing file /docs/index.html
+[main] INFO  i.s.codegen.v3.AbstractGenerator - writing file /docs/.swagger-codegen-ignore
+[main] INFO  i.s.codegen.v3.AbstractGenerator - writing file /docs/.swagger-codegen/VERSION
+[main] INFO  io.ktor.server.Application - Application started in 21.202 seconds.
+[DefaultDispatcher-worker-1] INFO  io.ktor.server.Application - Responding at http://0.0.0.0:8080
 ```
 
 ### Alternatives without Credit Card
