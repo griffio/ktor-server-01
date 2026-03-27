@@ -1,12 +1,28 @@
-FROM gradle:latest AS BUILD_STAGE
-WORKDIR /tmp
-COPY gradle gradle
-COPY build.gradle.kts gradle.properties settings.gradle.kts gradlew ./
-COPY src src
-RUN ./gradlew --no-daemon buildFatJar
+# Stage 1: Cache Gradle project dependencies
+FROM gradle:9.4.1-jdk25 AS cache
+WORKDIR /home/gradle/app
+ENV GRADLE_USER_HOME=/home/gradle/.gradle
 
-FROM amazoncorretto:25-alpine-jdk
-EXPOSE 8080:8080
-RUN mkdir /app
-COPY --from=BUILD_STAGE /tmp/build/libs/*-all.jar /app/ktor-server.jar
-ENTRYPOINT ["java","--enable-native-access=ALL-UNNAMED","-Xlog:gc+init","-XX:+PrintCommandLineFlags","-jar","/app/ktor-server.jar"]
+COPY gradlew build.gradle.kts settings.gradle.kts gradle.properties ./
+COPY gradle gradle
+RUN chmod +x gradlew && ./gradlew --no-daemon dependencies
+
+# Stage 2: Build project to distribution
+FROM gradle:9.4.1-jdk25 AS build
+ENV GRADLE_USER_HOME=/home/gradle/.gradle
+COPY --from=cache /home/gradle/.gradle /home/gradle/.gradle
+
+WORKDIR /home/gradle/project
+COPY --chown=gradle:gradle . .
+RUN chmod +x gradlew && ./gradlew --no-daemon clean buildFatJar
+
+# Stage 3: Runtime jar is copied from build
+FROM amazoncorretto:25 AS runtime
+WORKDIR /app
+
+COPY --from=build /home/gradle/project/build/libs/*.jar /app/project.jar
+
+EXPOSE 8080
+
+ENV JAVA_OPTS="-Xlog:gc+init -XX:+PrintCommandLineFlags"
+ENTRYPOINT ["java","-jar","--enable-native-access=ALL-UNNAMED","/app/project.jar"]

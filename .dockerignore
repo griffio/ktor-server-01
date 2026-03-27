@@ -1,0 +1,15 @@
+.git
+.gitignore
+.idea
+.gradle
+.kotlin
+build
+out
+
+.DS_Store
+Thumbs.db
+
+docs
+ReadMe.md
+
+*.iml
