@@ -19,8 +19,9 @@ Provides just enough RAM and CPU 512MB/0.1 for JVM app
 
 [Dockerfile](https://github.com/griffio/ktor-server-01/blob/master/Dockerfile)
 
-* Stage 1 - Run the gradle build to create a fatJar (or use installDist) with all dependencies
-* Stage 2 - Containerize the executable jar
+* Stage 1 - Cache Gradle dependencies
+* Stage 2 - Run the gradle build to create a fatJar with all dependencies
+* Stage 3 - Containerize the executable jar
 
 Alternative https://feedback.render.com/features/p/deploy-docker-images-from-public-private-registries
 
