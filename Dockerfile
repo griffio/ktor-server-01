@@ -17,7 +17,11 @@ COPY --chown=gradle:gradle . .
 RUN chmod +x gradlew && ./gradlew --no-daemon clean buildFatJar
 
 # Stage 3: Runtime jar is copied from build
-FROM amazoncorretto:25 AS runtime
+FROM amazoncorretto:25-alpine AS runtime
+
+RUN addgroup -S appuser && adduser -S appuser -G appuser
+USER appuser:appuser
+
 WORKDIR /app
 
 COPY --from=build /home/gradle/project/build/libs/*.jar /app/project.jar
